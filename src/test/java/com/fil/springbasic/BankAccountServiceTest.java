@@ -21,5 +21,12 @@ public class BankAccountServiceTest {
         assertEquals(0.0, bankAccountService.getBalance("12345"));
     }
 
+    @Test
+    void sendEmailNotificationToUser(){
+//        BankAccountRepository bankAccountRepository = new BankAccountRepository();
+//        BankAccountService bankAccountService = new BankAccountService(bankAccountRepository);
+        assertEquals(true, bankAccountService.sendEmail("test@xyz"));
+    }
+
 }
 //https://github.com/arunstiwari/fil-spring-boot
