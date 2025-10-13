@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-session
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      tier: frontend
+  template:
+    metadata:
+      labels:
+        tier: frontend
+    spec:
+      containers:
+        - name: nginx-session
+          image: nginx
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: nginx-service-custom-clusterip
+spec:
+  type: LoadBalancer
+  ports:
+    - port: 80
+      targetPort: 8080
+      protocol: TCP
+#   clusterIP: 10.96.0.5
+  selector:
+    tier: frontend

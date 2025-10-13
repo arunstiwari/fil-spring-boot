@@ -2,19 +2,31 @@ package com.fil.springbasic.order.service;
 
 import com.fil.springbasic.order.entity.Order;
 import com.fil.springbasic.order.entity.Product;
-import com.fil.springbasic.service.DatabaseService;
-import com.fil.springbasic.service.OrderService;
+import com.fil.springbasic.repository.BankAccountRepository;
+import com.fil.springbasic.repository.EmployeeRepository;
+import com.fil.springbasic.service.*;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
+import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
+import org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfiguration;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ActiveProfiles;
 
 import java.math.BigDecimal;
 import java.util.List;
 
-@ActiveProfiles("qa")
-@SpringBootTest
+@SpringBootTest(classes = {
+        BankAccountService.class,
+        BankAccountRepository.class,
+        NotificationService.class,
+        PricingService.class,
+        OrderService.class,
+        DatabaseService.class,
+        EmployeeRepository.class
+})
+@EnableAutoConfiguration(exclude = {DataSourceAutoConfiguration.class, HibernateJpaAutoConfiguration.class})
 public class OrderProcessingServiceTest {
 
     @Autowired

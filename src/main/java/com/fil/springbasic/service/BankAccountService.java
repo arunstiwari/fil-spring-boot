@@ -2,6 +2,7 @@ package com.fil.springbasic.service;
 
 import com.fil.springbasic.repository.BankAccountRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -10,7 +11,7 @@ public class BankAccountService {
     private NotificationService notificationService;
 
 
-    public BankAccountService(BankAccountRepository bankAccountRepository, NotificationService notificationService) {
+    public BankAccountService(BankAccountRepository bankAccountRepository, @Qualifier("notificationService") NotificationService notificationService) {
         this.bankAccountRepository = bankAccountRepository;
         this.notificationService = notificationService;
     }
