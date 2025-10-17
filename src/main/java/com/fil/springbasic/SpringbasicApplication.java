@@ -1,10 +1,7 @@
 package com.fil.springbasic;
 
-import com.fil.springbasic.service.BankAccountService;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 @SpringBootApplication
 public class SpringbasicApplication {

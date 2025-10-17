@@ -34,3 +34,6 @@ build/
 terraform/terraform.tfstate
 terraform/terraform.tfstate.backup
 terraform/.terraform
+
+terraform-backend-setup/*.tfstate
+terraform-backend-setup/.terraform
